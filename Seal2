@@ -1,0 +1,346 @@
+#Salvar em prontera
+#3 asas de borboleta
+#150k zenny
+#route_randomWalk 0
+#attackAuto 0
+#attackAuto_party 0
+#itemsTakeAuto 0
+#autoTalkCont 0
+
+do storage get Slick Paper 2
+do storage get Oil Paper 1
+do storage get Squid Ink 3
+do storage get Feather of Birds 3
+do storage get Blue Gemstone 20
+do storage get Alcohol 2
+do storage get Magnifier 5
+do storage get Green Herb 1
+do storage get Doll 1
+
+#Rebarev Doug
+do move prt_castle 42 150
+pause 5
+
+do talknpc 44 151 c c c c c c c c c r0 c c r0 c c c c c c n
+pause 15
+
+pause 15
+do talknpc 44 151 c c r1 n
+pause 5
+
+#Librarian Jekan
+do move prt_in 175 103
+pause 5
+
+do talknpc 172 106 c c c c r3 c t="the 1st squad's final mission" c n
+pause 5
+
+#MOSTROU A MSG:
+#Maybe...
+#Maybe not~
+#Tera que voltar no Rebarev Doug e conversar com ele novamente. Mostrou nas 2 vezes que fiz a quest.
+
+#Voltando a falar com o Rebarev Doug.
+do move prt_castle 42 150
+pause 5
+
+#If these steps do not work and the reply is "maybe yes maybe no", try returning to Rebarev Doug in the castle and repeat until the third option is obtained.
+#Na segunda vez que fiz a quest, apareceu a 3° opcao na 4 tentativa de conversa com o npc.
+#Na terceira vez que fiz a quest, apareceu a 3° opcao na 2 tentativa de conversa com o npc.
+do talknpc 44 151 c c r2 c c c c c c n
+pause 5
+
+#Voltando a falar com o Librarian Jekan
+do move prt_in 175 103
+pause 5
+
+#Confirmar essa parte
+#do talknpc 172 106 c c c c c r2 c c r0 c c r1 c c n
+#c c c c c r3 c t="the 1st squad's final mission" c n r2 c c r0 c c r1 c c n
+macro librarian {
+		do talknpc 172 106 c c c c c r3 c t="the 1st squad's final mission" c n
+		pause 3
+		do talk resp 2
+		pause 2
+		do talk cont
+		pause 2
+		do talk cont
+		pause 2
+		do talk cont
+		pause 2
+		do talk resp 0
+		pause 2
+		do talk cont
+		pause 2
+		do talk cont
+		pause 2
+		do talk resp 1
+		pause 2
+		do talk cont
+		pause 2
+		do talk cont
+		pause 5
+}
+
+do talknpc 172 106 c c c c c r2 c c r0 c c r1 c c n
+pause 5
+
+do move prt_in 168 106
+pause 5
+
+#Confirmar essa parte.
+#Tem 5 npc na prateleira de livros e tem que falar com eles ate achar: The 3rd Platoon Records
+#Tem que abrir com o Open Kore para selecionar esse npc.
+# A File#megin1 (172, 109) -> Encontrei nesse o The 3rd Platoon Records na primeira vez.
+# A File#megin2 (170, 109) -> Encontrei nesse o The 3rd Platoon Records na terceira vez.
+# A File#megin3 (168, 109)
+# A File#megin4 (169, 109)
+# A File#megin5 (166, 109) -> Encontrei nesse o The 3rd Platoon Records na segunda vez.
+
+do talknpc 172 109
+do talknpc 170 109
+do talknpc 168 109
+do talknpc 169 109
+do talknpc 166 109
+
+#A File#megin2: You have found The 3rd Platoon Records!
+#Apareceu a msg acima, creio que tera que criar um automacro para ir procurando nos arquivos.
+#Quando encontrar vai para a proxima etapa
+
+do talknpc 172 106 c c r0 c c c c c c n
+pause 10
+
+do talknpc 172 106 c c n
+pause 5
+
+#Tem que ir clicando nele ate habilitar conversa.
+#Essa é o log que mostra quando vc tenta habilitar a conversa:
+#Librarian#megin: [Librarian Jekan]
+#Librarian#megin: Let me go over and review the document before I make a copy...
+#NPC Librarian#megin (7): Conversa Finalizada.
+#Essa é o log que mostra quando vc habilitar a conversa:
+#Librarian#megin: [Librarian Jekan]
+#Librarian#megin: There you go. As I thought, the document didn't seem to contain any crucially important data.
+#Librarian#megin: [Librarian Jekan]
+#Librarian#megin: Just remember, this copy needs to stay in the Prontera Library. That means you have to come back if you need to read the document again.
+#NPC Librarian#megin (7): Conversa Finalizada.
+do talknpc 172 106 c n
+pause 5
+macro librarian2 {
+		do talknpc 172 106 c r0 c t="crusader 3rd_company 3rd_platoon 1st_squad record"
+		pause 3
+		do talk cont
+		pause 2
+		do talk cont
+		pause 2
+		do talk cont
+		pause 2
+		do talk cont
+		pause 2
+		do talk cont
+		pause 2
+		do talk cont
+		pause 2
+		do talk cont
+		pause 3
+}
+
+#Usar Carta de prontera para ir para geffen.
+
+#Zan Huadoku
+do move geffen_in 105 163
+pause 5
+
+do talknpc 109 161 c c c r0 c c c c c c c c n
+pause 15
+
+do talknpc 109 161 c c c r2 c c c c c c c c c c n
+pause 15
+
+#Keep talking to this NPC until he speaks about the unknown fragment. After that, talk to him again until he repeats himself.
+do talknpc 109 161 c c c c c c n
+pause 10
+
+do talknpc 109 161 c n
+pause 5
+
+#Usar Carta de prontera para ir para morroc.
+
+#Inn Employee
+do move morocc_in 142 139
+pause 5
+
+#Esse npc pode ocorrer de te matar. Por isso salvar nesse inn de Morroc
+do talknpc 147 141 c r0 n
+pause 5
+
+do move morocc_in 143 176
+pause 5
+
+#Se ele te matar, precisa repetir essa parte ate mudar para a fala abaixo.
+do talknpc 146 179 c c t="Donon" c c c r0 c c c
+pause 5
+
+#Select any of the options until you receive a clue that says "Aragham never hoarded upgrade items."
+do talknpc 146 179 c c n
+pause 5
+
+#Usar Carta de prontera.
+
+#Salvar em prontera
+do move prontera 142 94
+pause 5
+
+do talknpc 146 89 c r1 n
+pause 5
+
+#Ele precisa ir para cmd_fild09. Sugiro deixar um priest para dar warp quando o char do selo enviar algum comando.
+#Usar o Champ dessa conta: zica171 / 171731
+
+#Fortress Saint Darmain
+#Suspicious Man
+do move prontera 208 92
+pause 5
+
+#Criar comando para o Champ abrir o portal e depois ele entrar.
+
+do move cmd_fild09 106 194
+pause 5
+
+#Irá abrir um pop up de conversa com os passos abaixo:
+c r1 r2 r1 r0 c n
+pause 5
+
+do move in_rogue 243 57
+pause 5
+
+do talknpc 243 61 c c c c r1 c c c c n
+pause 20
+
+do talknpc 243 61 c c c c r0 c c c c c c c c c c c c c c c n
+pause 20
+
+do talknpc 243 61 c c c c r2 c c r2 c n
+pause 5
+
+#Usar Carta de prontera.
+
+#Jack O' at
+do move alberta 192 142
+pause 5
+
+do talknpc 196 146 c c r2 c c n
+pause 5
+
+do talknpc 196 146 c c r0 c c c c c c c c n
+pause 5
+
+#Keep talking to him until you get a message that says he's chewing green herbs.
+#Na primeira vez que fiz, ja foi de cara finalizando o npc. Testarei outras vezes que fizer a quest.
+#Nas duas vezes ele ja finalizou o npc.
+#Na terceira vez ele ja finalizou o npc.
+do talknpc 196 146 c c c c n
+pause 5
+
+#Usar Carta de prontera.
+
+#O meu openkore esta indo para Izlude antes de ir para aldebaran. Tem que ver como muda isso.
+#Emma Searth
+do move aldebaran 63 211
+pause 5
+
+do talknpc 66 213 c c c c c c c c c r2 c c c c n
+pause 5
+
+#Usar Carta de prontera.
+
+#SoloHan 
+do move prt_in 172 21
+pause 5
+
+do talknpc 173 13 c c c c c c c c c c r0 c c c c c r0 c c c c c r0 c c c c c r0 c c c c c r0 c c c c c c r0 n
+pause 5
+
+#Nineball
+do move jawaii_in 43 113
+pause 5
+
+do talknpc 44 110 c c n
+pause 5
+
+do talknpc 44 110 c c n
+pause 5
+
+#Repeat talking to him until you can't get any further information from him.
+#Conversei com ele ate ter apenas 2 opcoes de conversa.
+#No final do pop up ele fala: happened in the 1 st Squad...
+do talknpc 44 110 c n
+pause 5
+
+#Usar Asa de Borboleta.
+
+#Man
+
+do move cmd_in02 187 97
+pause5
+
+do talknpc 190 94 c c r0 n
+pause5
+
+do talknpc 190 94 c r3 c c n
+pause5
+
+do talknpc 190 94 c r0 n
+pause5
+
+do talknpc 190 94 c r3 c c n
+pause 5
+
+do talknpc 190 94 c r2 c c n
+pause 5
+
+#Usar Carta de prontera.
+
+#Salvar em prontera
+do move prontera 142 94
+pause 5
+
+do talknpc 146 89 c r1 n
+pause 5
+
+#Rebarev Doug
+do move prt_castle 42 150
+pause 5
+
+do talknpc 44 151 c c r1 c c c c n
+pause 5
+
+#Usar Carta de prontera.
+
+#Salve em Umbala
+do move umbala 88 158
+pause 5
+
+do talknpc 87 160 c r1 n
+pause 5
+
+#Tem que arrumar uma forma dele ir para Niflheim por Umbala.
+move 136 197
+move 140 195
+move 139 198
+
+#Egnigem
+
+do move niflheim 103 258
+pause 5
+
+do talknpc 109 254 c c c r3 n
+pause 5
+
+#Usar Carta de prontera.
+
+#Rebarev Doug
+do move prt_castle 42 150
+pause 5
+
+#O dois ultimos npc são para finalizar a quest. Pegar o Megingjard Stoned e 1 contagem para a quest dos selos.

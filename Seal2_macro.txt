@@ -105,7 +105,7 @@ automacro Librarian_03 {
 	run-once 1
 	call {
 		# A File
-		while (@config (SealQuest2) < 6) as loop
+		while (@config (SealQuest2) == 5) as loop
 			do talknpc 172 109 n
 			pause 1
 		end loop
@@ -141,11 +141,13 @@ automacro Librarian_06 {
 	call {
 		# Librarian Jekan
 		do talknpc 172 106 c c r0 c c c c c c n
+		# Update Quest
+		do conf SealQuest2 8
 	}
 }
 automacro Librarian_07 {
 	location prt_in 180 97
-	eval $::config{SealQuest2} eq 7
+	eval $::config{SealQuest2} eq 8
 	inventory "Blue Gemstone" >= 20
 	inventory "Bird Feather" >= 3
 	inventory "Slick Paper" >= 2
@@ -156,5 +158,29 @@ automacro Librarian_07 {
 	call {
 		# Librarian Jekan
 		do talknpc 172 106 c c n
+		# Update Quest
+		do conf SealQuest2 9
+	}
+}
+automacro Librarian_08 {
+	location prt_in 180 97
+	eval $::config{SealQuest2} eq 9
+	run-once 1
+	call {
+		# Librarian Jekan
+		while (@config (SealQuest2) == 9) as loop
+			do talknpc 172 106 c n
+			pause 1
+		end loop
+	}
+}
+automacro Librarian_09 {
+	location prt_in 180 97
+	eval $::config{SealQuest2} eq 9
+	console /There you go. As I thought, the document didn't seem to contain any crucially important data./i
+	run-once 1
+	call {
+		# Update Quest
+		do conf SealQuest2 10
 	}
 }

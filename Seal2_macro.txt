@@ -121,3 +121,13 @@ automacro Librarian_04 {
 		do conf SealQuest2 6
 	}
 }
+automacro Librarian_05 {
+	location prt_in 180 97
+	eval $::config{SealQuest2} eq 6
+	exclusive 1
+	run-once 1
+	call {
+		# Librarian Jekan
+		talknpc 172 106 c c r0 c c c c c c n
+	}
+}

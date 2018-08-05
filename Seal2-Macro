@@ -285,8 +285,9 @@ macro Suspicious_Man {
 	pause 5
 	do talknpc 243 61 c c c c r0 c c c c c c c c c c c c c c c n
 	pause 5
-#confirmar se essa parte deu certo. para confirmar, verificar se ira falar com o proximo npc
-	do talknpc 243 61 c c c c r2 c c r2 n
+	do talknpc 243 61 c c c c r2 c c r2 c n
+	pause 5
+	do talknpc 243 61 c c n
 	pause 5
 	do is Prontera Warp Pass
 	pause 5

@@ -371,4 +371,54 @@ macro Man {
 	pause 5
 	do is Prontera Warp Pass
 	pause 5
+	call prontera2
 }
+
+#Salvar em prontera
+macro prontera2 {
+	do move prontera 142 94
+	pause 5
+	do talknpc 146 89 c r1 n
+	pause 5
+	call Rebarev_Doug3
+}
+
+#Rebarev Doug
+macro Rebarev_Doug3 {
+	do move prt_castle 42 150
+	pause 5
+	do talknpc 44 151 c c r1 c c c c n
+	pause 5
+	do is Prontera Warp Pass
+	pause 5
+	call umbala
+}
+
+#Umbala
+macro umbala {
+	do move umbala 88 158
+	pause 5
+	do talknpc 87 160 c r1 n
+	pause 5
+}
+
+#Tem que arrumar uma forma dele ir para Niflheim por Umbala.
+
+#Egnigem
+macro egnigem {
+	do move niflheim 103 258
+	pause 5
+	do talknpc 109 254 c c c r3 n
+	pause 5
+	do is Prontera Warp Pass
+	pause 5
+	call Rebarev_Doug4
+}
+
+#Rebarev Doug
+macro Rebarev_Doug4
+	do move prt_castle 42 150
+	pause 5
+}
+
+#O dois ultimos npc são para finalizar a quest. Pegar o Megingjard Stoned e 1 contagem para a quest dos selos.

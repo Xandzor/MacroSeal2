@@ -62,7 +62,7 @@ automacro Librarian_01 {
 	run-once 1
 	call {
 		# Librarian
-		do move prt_in 180 97
+		do nl prt_in 180 97
 		# Update Quest
 		do conf SealQuest2 4
 	}
@@ -74,7 +74,7 @@ automacro Librarian_02 {
 	run-once 1
 	call {
 		# Librarian Jekan
-		do talknpc 172 106 c c c c c n
+		do talknpc 172 106 c c c c c
 		pause 2
 		do talk resp 2
 		pause 2
@@ -96,6 +96,28 @@ automacro Librarian_02 {
 		pause 2
 		do talk cont
 		# Update Quest
-		do conf SealQuest2 4
+		do conf SealQuest2 5
+	}
+}
+automacro Librarian_03 {
+	location prt_in 180 97
+	eval $::config{SealQuest2} eq 5
+	run-once 1
+	call {
+		# A File
+		while (@config (SealQuest2) < 6) as loop
+			do talknpc 172 109 n
+			pause 1
+		end loop
+	}
+}
+automacro Librarian_04 {
+	location prt_in 180 97
+	eval $::config{SealQuest2} eq 5
+	console /The 3rd Platoon Records/i
+	run-once 1
+	call {
+		# Update Quest
+		do conf SealQuest2 6
 	}
 }

@@ -410,6 +410,8 @@ macro egnigem {
 	pause 5
 	do talknpc 109 254 c c c r3 n
 	pause 5
+	do talknpc 109 254 c n
+	pause 5
 	do is Prontera Warp Pass
 	pause 5
 	call Rebarev_Doug4

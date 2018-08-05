@@ -186,3 +186,35 @@ automacro Librarian_09 {
 		do conf SealQuest2 10
 	}
 }
+automacro Librarian_10 {
+	location prt_in 180 97
+	eval $::config{SealQuest2} eq 10
+	exclusive 1
+	run-once 1
+	call {
+		# Librarian Jekan
+		do talknpc 172 106
+		pause 5
+		do talk cont
+		pause 5
+		do talk resp 0
+		pause 5
+		do talk cont
+		pause 5
+		do talk text "crusader 3rd_company 3rd_platoon 1st_squad record"
+		pause 5
+		do talk cont
+		pause 5
+		do talk cont
+		pause 5
+		do talk cont
+		pause 5
+		do talk cont
+		pause 5
+		do talk cont
+		pause 5
+		do talk cont
+		pause 5
+		do talk cont
+	}
+}

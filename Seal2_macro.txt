@@ -74,7 +74,7 @@ automacro Librarian_02 {
 	run-once 1
 	call {
 		# Librarian Jekan
-		do talknpc 172 106 c c c c c r3 c t="the 1st squad's final mission" c n
+		do talknpc 172 106 c c c c c n
 		pause 2
 		do talk resp 2
 		pause 2

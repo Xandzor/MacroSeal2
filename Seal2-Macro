@@ -7,6 +7,17 @@
 # - Deixar pelo menos 150k zenny
 # - Deixar itens da quest na kafra (Verificar se os itens da quest que pega na kafra são os que estão na macro)
 # - Ter no inventário Prontera Warp Pass
+# - Colocar na kafra de cada conta a quantidade dos itens abaixo:
+# - Slick Paper 18
+# - Oil Paper 9
+# - Squid Ink 27
+# - Bird Feather 27
+# - Blue Gemstone 180
+# - Alcohol 18
+# - Magnifier 45
+# - Green Herb 9
+# - Poring Doll 9
+# - Butterfly Wing 27
 ##############################################################################
 #Configurações adicionais no kore para reconhecimento do Prontera Warp Pass
 # Na pasta table/iRO adicionar nos arquivos:

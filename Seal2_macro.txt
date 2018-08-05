@@ -129,5 +129,32 @@ automacro Librarian_05 {
 	call {
 		# Librarian Jekan
 		talknpc 172 106 c c r0 c c c c c c n
+		# Update Quest
+		do conf SealQuest2 7
+	}
+}
+automacro Librarian_06 {
+	location prt_in 180 97
+	eval $::config{SealQuest2} eq 7
+	exclusive 1
+	run-once 1
+	call {
+		# Librarian Jekan
+		do talknpc 172 106 c c r0 c c c c c c n
+	}
+}
+automacro Librarian_07 {
+	location prt_in 180 97
+	eval $::config{SealQuest2} eq 7
+	inventory "Blue Gemstone" >= 20
+	inventory "Bird Feather" >= 3
+	inventory "Slick Paper" >= 2
+	inventory "Oil Paper" >= 1
+	inventory "Squid Ink" >= 3
+	exclusive 1
+	run-once 1
+	call {
+		# Librarian Jekan
+		do talknpc 172 106 c c n
 	}
 }

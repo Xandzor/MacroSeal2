@@ -1,0 +1,101 @@
+automacro Begin_Quest {
+	location prontera
+	eval $::config{SealQuest2} eq 0
+	exclusive 1
+	run-once 1
+	call {
+		# Rebarev Doug
+		do move prt_castle 42 145
+		pause 5
+		## Update Quest
+		do conf SealQuest2 1
+	}
+}
+automacro Rebarev_Doug_01 {
+	location prt_castle
+	eval $::config{SealQuest2} eq 1
+	exclusive 1
+	run-once 1
+	call {
+		# Rebarev Doug
+		do talknpc 44 151 c c c c c c c c c r0 c c r0 c c c c c c n
+		# Update Quest
+		do conf SealQuest2 2
+	}
+}
+automacro Rebarev_Doug_02 {
+	location prt_castle
+	eval $::config{SealQuest2} eq 2
+	run-once 1
+	call {
+		## Settings
+		[
+			do conf npcWrongStepsMethod 2
+		]
+		# Rebarev Doug
+		do talknpc 44 151 c c r~/mission/ c c c c c c
+	}
+}
+automacro Rebarev_Doug_03 {
+	location prt_castle
+	eval $::config{SealQuest2} eq 2
+	console /What do you mean by final mission?/i
+	run-once 1
+	call {
+		# Update Quest
+		do conf SealQuest2 3
+	}
+}
+automacro Rebarev_Doug_04 {
+	location prt_castle
+	eval $::config{SealQuest2} eq 2
+	console /Now openkore will try to auto-end this npc conversation/i
+	call {
+		# Repeat
+		release Rebarev_Doug_02
+	}
+}
+automacro Librarian_01 {
+	location prt_castle
+	eval $::config{SealQuest2} eq 3
+	exclusive 1
+	run-once 1
+	call {
+		# Librarian
+		do move prt_in 180 97
+		# Update Quest
+		do conf SealQuest2 4
+	}
+}
+automacro Librarian_02 {
+	location prt_in 180 97
+	eval $::config{SealQuest2} eq 4
+	exclusive 1
+	run-once 1
+	call {
+		# Librarian Jekan
+		do talknpc 172 106 c c c c c r3 c t="the 1st squad's final mission" c n
+		pause 2
+		do talk resp 2
+		pause 2
+		do talk cont
+		pause 2
+		do talk cont
+		pause 2
+		do talk cont
+		pause 2
+		do talk resp 0
+		pause 2
+		do talk cont
+		pause 2
+		do talk cont
+		pause 2
+		do talk resp 1
+		pause 2
+		do talk cont
+		pause 2
+		do talk cont
+		# Update Quest
+		do conf SealQuest2 4
+	}
+}

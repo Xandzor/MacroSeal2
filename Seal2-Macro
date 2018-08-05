@@ -41,6 +41,7 @@ macro storage {
 	do storage get Magnifier 5
 	do storage get Green Herb 1
 	do storage get Poring Doll 1
+	do storage get Butterfly Wing 3
 	pause 3
 	do storage close
 	pause 5

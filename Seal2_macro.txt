@@ -169,7 +169,7 @@ automacro Librarian_08 {
 	call {
 		# Librarian Jekan
 		while (@config (SealQuest2) == 9) as loop
-			do talknpc 172 106 c n
+			do talknpc 172 106 n
 			pause 1
 		end loop
 	}
@@ -180,6 +180,8 @@ automacro Librarian_09 {
 	console /There you go. As I thought, the document didn't seem to contain any crucially important data./i
 	run-once 1
 	call {
+		# End
+		do talk cont
 		# Update Quest
 		do conf SealQuest2 10
 	}

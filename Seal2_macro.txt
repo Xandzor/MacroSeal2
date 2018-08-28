@@ -86,7 +86,7 @@ automacro Rebarev_Doug_08 {
     run-once 1
     call {
         # Update Quest
-        do conf SealQuest2 4
+        do conf SealQuest2 6
     }
 }
 automacro Rebarev_Doug_09 {
@@ -100,7 +100,7 @@ automacro Rebarev_Doug_09 {
 }
 automacro Librarian_01 {
     location prt_castle
-    eval $::config{SealQuest2} eq 3
+    eval $::config{SealQuest2} eq 6
     exclusive 1
     run-once 1
     call {

@@ -1,232 +1,263 @@
 automacro Begin_Quest {
-	location prontera
-	eval $::config{SealQuest2} eq 0
-	exclusive 1
-	run-once 1
-	call {
-		# Rebarev Doug
-		do move prt_castle 42 145
-		pause 5
-		## Update Quest
-		do conf SealQuest2 1
-	}
+    location prontera
+    eval $::config{SealQuest2} eq 0
+    exclusive 1
+    run-once 1
+    call {
+        # Rebarev Doug
+        do move prt_castle 42 145
+        pause 5
+        ## Update Quest
+        do conf SealQuest2 1
+    }
 }
 automacro Rebarev_Doug_01 {
-	location prt_castle
-	eval $::config{SealQuest2} eq 1
-	exclusive 1
-	run-once 1
-	call {
-		# Rebarev Doug
-		do talknpc 44 151 c c c c c c c c c r0 c c r0 c c c c c c n
-		# Update Quest
-		do conf SealQuest2 2
-	}
+    location prt_castle
+    eval $::config{SealQuest2} eq 1
+    exclusive 1
+    run-once 1
+    call {
+        # Rebarev Doug
+        do talknpc 44 151 c c c c c c c c c r0 c c r0 c c c c c c n
+        # Update Quest
+        do conf SealQuest2 2
+    }
 }
 automacro Rebarev_Doug_02 {
-	location prt_castle
-	eval $::config{SealQuest2} eq 2
-	exclusive 1
-	run-once 1
-	call {
-		# Rebarev Doug
-		do talknpc 44 151 c c r1 n
-		# Update Quest
-		do conf SealQuest2 3
-	}
-}
-automacro Rebarev_Doug_03 {
-	location prt_castle
-	eval $::config{SealQuest2} eq 3
-	run-once 1
-	call {
-		## Settings
-		[
-			do conf npcWrongStepsMethod 2
-		]
-		# Rebarev Doug
-		do talknpc 44 151 c c r~/mission/ c c c c c c
-	}
+    location prt_castle
+    eval $::config{SealQuest2} eq 2
+    exclusive 1
+    run-once 1
+    call {
+        # Rebarev Doug
+        do talknpc 44 151 c c r1 n
+        # Update Quest
+        do conf SealQuest2 3
+    }
 }
 automacro Rebarev_Doug_04 {
-	location prt_castle
-	eval $::config{SealQuest2} eq 3
-	console /What do you mean by final mission?/i
-	run-once 1
-	call {
-		# Update Quest
-		do conf SealQuest2 4
-	}
+    location prt_castle
+    eval $::config{SealQuest2} eq 3
+    run-once 1
+    call {
+        # Rebarev Doug
+        do move prt_in 180 97
+    }
 }
 automacro Rebarev_Doug_05 {
-	location prt_castle
-	eval $::config{SealQuest2} eq 3
-	console /Now openkore will try to auto-end this npc conversation/i
-	call {
-		# Repeat
-		release Rebarev_Doug_03
-	}
+    location prt_in
+    eval $::config{SealQuest2} eq 3
+    run-once 1
+    call {
+        # Rebarev Doug
+        do talknpc 172 106 c c c c r3 c t="the 1st squad's final mission" c n
+        # Update Quest
+        do conf SealQuest2 4
+    }
+}
+automacro Rebarev_Doug_06 {
+    location prt_in
+    eval $::config{SealQuest2} eq 4
+    run-once 1
+    call {
+        # Rebarev Doug
+        do move prt_castle 42 145
+        ## Update Quest
+        do conf SealQuest2 5
+    }
+}
+automacro Rebarev_Doug_07 {
+    location prt_castle
+    eval $::config{SealQuest2} eq 5
+    run-once 1
+    call {
+        ## Settings
+        [
+            do conf npcWrongStepsMethod 2
+        ]
+        # Rebarev Doug
+        do talknpc 44 151 c c r~/mission/ c c c c c c
+    }
+}
+automacro Rebarev_Doug_08 {
+    location prt_castle
+    eval $::config{SealQuest2} eq 5
+    console /What do you mean by final mission?/i
+    run-once 1
+    call {
+        # Update Quest
+        do conf SealQuest2 4
+    }
+}
+automacro Rebarev_Doug_09 {
+    location prt_castle
+    eval $::config{SealQuest2} eq 5
+    console /Now openkore will try to auto-end this npc conversation/i
+    call {
+        # Repeat
+        release Rebarev_Doug_07
+    }
 }
 automacro Librarian_01 {
-	location prt_castle
-	eval $::config{SealQuest2} eq 3
-	exclusive 1
-	run-once 1
-	call {
-		# Librarian
-		do nl prt_in 180 97
-		# Update Quest
-		do conf SealQuest2 4
-	}
+    location prt_castle
+    eval $::config{SealQuest2} eq 3
+    exclusive 1
+    run-once 1
+    call {
+        # Librarian
+        do nl prt_in 180 97
+        # Update Quest
+        do conf SealQuest2 4
+    }
 }
 automacro Librarian_02 {
-	location prt_in 180 97
-	eval $::config{SealQuest2} eq 4
-	exclusive 1
-	run-once 1
-	call {
-		# Librarian Jekan
-		do talknpc 172 106 c c c c c
-		pause 2
-		do talk resp 2
-		pause 2
-		do talk cont
-		pause 2
-		do talk cont
-		pause 2
-		do talk cont
-		pause 2
-		do talk resp 0
-		pause 2
-		do talk cont
-		pause 2
-		do talk cont
-		pause 2
-		do talk resp 1
-		pause 2
-		do talk cont
-		pause 2
-		do talk cont
-		# Update Quest
-		do conf SealQuest2 5
-	}
+    location prt_in 180 97
+    eval $::config{SealQuest2} eq 4
+    exclusive 1
+    run-once 1
+    call {
+        # Librarian Jekan
+        do talknpc 172 106 c c c c c
+        pause 2
+        do talk resp 2
+        pause 2
+        do talk cont
+        pause 2
+        do talk cont
+        pause 2
+        do talk cont
+        pause 2
+        do talk resp 0
+        pause 2
+        do talk cont
+        pause 2
+        do talk cont
+        pause 2
+        do talk resp 1
+        pause 2
+        do talk cont
+        pause 2
+        do talk cont
+        # Update Quest
+        do conf SealQuest2 5
+    }
 }
 automacro Librarian_03 {
-	location prt_in 180 97
-	eval $::config{SealQuest2} eq 5
-	run-once 1
-	call {
-		# A File
-		while (@config (SealQuest2) == 5) as loop
-			do talknpc 172 109 n
-			pause 1
-		end loop
-	}
+    location prt_in 180 97
+    eval $::config{SealQuest2} eq 5
+    run-once 1
+    call {
+        # A File
+        while (@config (SealQuest2) == 5) as loop
+            do talknpc 172 109 n
+            pause 1
+        end loop
+    }
 }
 automacro Librarian_04 {
-	location prt_in 180 97
-	eval $::config{SealQuest2} eq 5
-	console /The 3rd Platoon Records/i
-	run-once 1
-	call {
-		# Update Quest
-		do conf SealQuest2 6
-	}
+    location prt_in 180 97
+    eval $::config{SealQuest2} eq 5
+    console /The 3rd Platoon Records/i
+    run-once 1
+    call {
+        # Update Quest
+        do conf SealQuest2 6
+    }
 }
 automacro Librarian_05 {
-	location prt_in 180 97
-	eval $::config{SealQuest2} eq 6
-	exclusive 1
-	run-once 1
-	call {
-		# Librarian Jekan
-		talknpc 172 106 c c r0 c c c c c c n
-		# Update Quest
-		do conf SealQuest2 7
-	}
+    location prt_in 180 97
+    eval $::config{SealQuest2} eq 6
+    exclusive 1
+    run-once 1
+    call {
+        # Librarian Jekan
+        talknpc 172 106 c c r0 c c c c c c n
+        # Update Quest
+        do conf SealQuest2 7
+    }
 }
 automacro Librarian_06 {
-	location prt_in 180 97
-	eval $::config{SealQuest2} eq 7
-	exclusive 1
-	run-once 1
-	call {
-		# Librarian Jekan
-		do talknpc 172 106 c c r0 c c c c c c n
-		# Update Quest
-		do conf SealQuest2 8
-	}
+    location prt_in 180 97
+    eval $::config{SealQuest2} eq 7
+    exclusive 1
+    run-once 1
+    call {
+        # Librarian Jekan
+        do talknpc 172 106 c c r0 c c c c c c n
+        # Update Quest
+        do conf SealQuest2 8
+    }
 }
 automacro Librarian_07 {
-	location prt_in 180 97
-	eval $::config{SealQuest2} eq 8
-	inventory "Blue Gemstone" >= 20
-	inventory "Bird Feather" >= 3
-	inventory "Slick Paper" >= 2
-	inventory "Oil Paper" >= 1
-	inventory "Squid Ink" >= 3
-	exclusive 1
-	run-once 1
-	call {
-		# Librarian Jekan
-		do talknpc 172 106 c c n
-		# Update Quest
-		do conf SealQuest2 9
-	}
+    location prt_in 180 97
+    eval $::config{SealQuest2} eq 8
+    inventory "Blue Gemstone" >= 20
+    inventory "Bird Feather" >= 3
+    inventory "Slick Paper" >= 2
+    inventory "Oil Paper" >= 1
+    inventory "Squid Ink" >= 3
+    exclusive 1
+    run-once 1
+    call {
+        # Librarian Jekan
+        do talknpc 172 106 c c n
+        # Update Quest
+        do conf SealQuest2 9
+    }
 }
 automacro Librarian_08 {
-	location prt_in 180 97
-	eval $::config{SealQuest2} eq 9
-	run-once 1
-	call {
-		# Librarian Jekan
-		while (@config (SealQuest2) == 9) as loop
-			do talknpc 172 106 n
-			pause 1
-		end loop
-	}
+    location prt_in 180 97
+    eval $::config{SealQuest2} eq 9
+    run-once 1
+    call {
+        # Librarian Jekan
+        while (@config (SealQuest2) == 9) as loop
+            do talknpc 172 106 n
+            pause 1
+        end loop
+    }
 }
 automacro Librarian_09 {
-	location prt_in 180 97
-	eval $::config{SealQuest2} eq 9
-	console /There you go. As I thought, the document didn't seem to contain any crucially important data./i
-	run-once 1
-	call {
-		# End
-		do talk cont
-		# Update Quest
-		do conf SealQuest2 10
-	}
+    location prt_in 180 97
+    eval $::config{SealQuest2} eq 9
+    console /There you go. As I thought, the document didn't seem to contain any crucially important data./i
+    run-once 1
+    call {
+        # End
+        do talk cont
+        # Update Quest
+        do conf SealQuest2 10
+    }
 }
 automacro Librarian_10 {
-	location prt_in 180 97
-	eval $::config{SealQuest2} eq 10
-	exclusive 1
-	run-once 1
-	call {
-		# Librarian Jekan
-		do talknpc 172 106
-		pause 5
-		do talk cont
-		pause 5
-		do talk resp 0
-		pause 5
-		do talk cont
-		pause 5
-		do talk text "crusader 3rd_company 3rd_platoon 1st_squad record"
-		pause 5
-		do talk cont
-		pause 5
-		do talk cont
-		pause 5
-		do talk cont
-		pause 5
-		do talk cont
-		pause 5
-		do talk cont
-		pause 5
-		do talk cont
-		pause 5
-		do talk cont
-	}
+    location prt_in 180 97
+    eval $::config{SealQuest2} eq 10
+    exclusive 1
+    run-once 1
+    call {
+        # Librarian Jekan
+        do talknpc 172 106
+        pause 5
+        do talk cont
+        pause 5
+        do talk resp 0
+        pause 5
+        do talk cont
+        pause 5
+        do talk text "crusader 3rd_company 3rd_platoon 1st_squad record"
+        pause 5
+        do talk cont
+        pause 5
+        do talk cont
+        pause 5
+        do talk cont
+        pause 5
+        do talk cont
+        pause 5
+        do talk cont
+        pause 5
+        do talk cont
+        pause 5
+        do talk cont
+    }
 }

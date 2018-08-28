@@ -236,28 +236,24 @@ automacro Librarian_10 {
     run-once 1
     call {
         # Librarian Jekan
-        do talknpc 172 106
-        pause 5
+        do talknpc 172 106 c r0 c t="crusader 3rd_company 3rd_platoon 1st_squad record"
+        pause 3
         do talk cont
-        pause 5
-        do talk resp 0
-        pause 5
+        pause 2
         do talk cont
-        pause 5
-        do talk text "crusader 3rd_company 3rd_platoon 1st_squad record"
-        pause 5
+        pause 2
         do talk cont
-        pause 5
+        pause 2
         do talk cont
-        pause 5
+        pause 2
         do talk cont
-        pause 5
+        pause 2
         do talk cont
-        pause 5
+        pause 2
         do talk cont
-        pause 5
-        do talk cont
-        pause 5
+        pause 2
+        do talk resp 4
+        pause 2
         do talk cont
     }
 }

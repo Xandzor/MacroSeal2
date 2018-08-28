@@ -143,9 +143,20 @@ automacro Librarian_02 {
         do conf SealQuest2 8
     }
 }
-automacro Librarian_03 {
+
+automacro Librarian_02_ {
     location prt_in 180 97
     eval $::config{SealQuest2} eq 8
+    run-once 1
+    call {
+        do talknpc 172 106 c c c c c r2 c c r0 c r1 c n
+        # Update Quest
+        do conf SealQuest2 8_
+    }
+}
+automacro Librarian_03 {
+    location prt_in 180 97
+    eval $::config{SealQuest2} eq 8_
     run-once 1
     call {
         # A File

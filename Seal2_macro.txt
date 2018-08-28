@@ -26,6 +26,18 @@ automacro Rebarev_Doug_01 {
 automacro Rebarev_Doug_02 {
 	location prt_castle
 	eval $::config{SealQuest2} eq 2
+	exclusive 1
+	run-once 1
+	call {
+		# Rebarev Doug
+		do talknpc 44 151 c c r1 n
+		# Update Quest
+		do conf SealQuest2 3
+	}
+}
+automacro Rebarev_Doug_03 {
+	location prt_castle
+	eval $::config{SealQuest2} eq 3
 	run-once 1
 	call {
 		## Settings
@@ -36,23 +48,23 @@ automacro Rebarev_Doug_02 {
 		do talknpc 44 151 c c r~/mission/ c c c c c c
 	}
 }
-automacro Rebarev_Doug_03 {
+automacro Rebarev_Doug_04 {
 	location prt_castle
-	eval $::config{SealQuest2} eq 2
+	eval $::config{SealQuest2} eq 3
 	console /What do you mean by final mission?/i
 	run-once 1
 	call {
 		# Update Quest
-		do conf SealQuest2 3
+		do conf SealQuest2 4
 	}
 }
-automacro Rebarev_Doug_04 {
+automacro Rebarev_Doug_05 {
 	location prt_castle
-	eval $::config{SealQuest2} eq 2
+	eval $::config{SealQuest2} eq 3
 	console /Now openkore will try to auto-end this npc conversation/i
 	call {
 		# Repeat
-		release Rebarev_Doug_02
+		release Rebarev_Doug_03
 	}
 }
 automacro Librarian_01 {

@@ -184,7 +184,7 @@ automacro Librarian_05 {
     run-once 1
     call {
         # Librarian Jekan
-        talknpc 172 106 c c r0 c c c c c c n
+        do talknpc 172 106 c c r0 c c c c c c n
         # Update Quest
         do conf SealQuest2 10
     }

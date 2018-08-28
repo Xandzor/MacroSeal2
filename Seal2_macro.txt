@@ -150,6 +150,7 @@ automacro Librarian_02_ {
     run-once 1
     call {
         do talknpc 172 106 c c c c c r2 c c r0 c r1 c n
+        # Verificar passo na proxima vez pois deu erro do C apos do R0 e o N no final
         # Update Quest
         do conf SealQuest2 8_
     }

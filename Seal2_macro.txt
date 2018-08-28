@@ -212,8 +212,8 @@ automacro Librarian_08 {
     call {
         # Librarian Jekan
         while (@config (SealQuest2) == 12) as loop
-            do talknpc 172 106 n
-            pause 1
+            do talknpc 172 106
+            pause 2
         end loop
     }
 }

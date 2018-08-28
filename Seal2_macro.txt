@@ -254,6 +254,5 @@ automacro Librarian_10 {
         pause 2
         do talk resp 4
         pause 2
-        do talk cont
     }
 }

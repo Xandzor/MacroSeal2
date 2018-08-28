@@ -150,19 +150,17 @@ automacro Librarian_02_ {
     run-once 1
     call {
         do talknpc 172 106 c c c c c r2 c c r0 c r1 c n
-        # Verificar passo na proxima vez pois deu erro do C apos do R0 e o N no final
         # Update Quest
         do conf SealQuest2 8_
     }
 }
-# Colocar na sequencia correta
 automacro Librarian_03 {
     location prt_in 180 97
     eval $::config{SealQuest2} eq 8_
     run-once 1
     call {
         # A File
-        while (@config (SealQuest2) == 8_) as loop
+        while (@config (SealQuest2) == 8) as loop
             do talknpc 172 109 n
             pause 1
         end loop
@@ -170,7 +168,7 @@ automacro Librarian_03 {
 }
 automacro Librarian_04 {
     location prt_in 180 97
-    eval $::config{SealQuest2} eq 8_
+    eval $::config{SealQuest2} eq 8
     console /The 3rd Platoon Records/i
     run-once 1
     call {
@@ -181,18 +179,6 @@ automacro Librarian_04 {
 automacro Librarian_05 {
     location prt_in 180 97
     eval $::config{SealQuest2} eq 9
-    exclusive 1
-    run-once 1
-    call {
-        # Librarian Jekan
-        do talknpc 172 106 c c r0 c c c c c c n
-        # Update Quest
-        do conf SealQuest2 10
-    }
-}
-automacro Librarian_06 {
-    location prt_in 180 97
-    eval $::config{SealQuest2} eq 10
     exclusive 1
     run-once 1
     call {

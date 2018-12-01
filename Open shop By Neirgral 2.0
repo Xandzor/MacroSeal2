@@ -1,0 +1,46 @@
+automacro abrir_loja {
+	console /Other players are not allowed to view your Equipment./i
+	location prontera
+	exclusive 1
+	macro_delay 0.1
+	priority 1
+	call abrir_loja
+}
+
+macro abrir_loja {
+	do conf attackAuto 0
+	do conf attackAuto_party 0
+	do conf follow 0
+	do conf itemsTakeAuto 0
+	do conf route_randomWalk 0
+	do conf route_escape_reachedNoPortal 0
+	do conf route_escape_randomWalk 0
+	log -------- Indo para o local que vai abrir a loja --------
+	do move xxx xx
+	pause 5
+	#do look 4
+	log -------- Se preparando para abrir a loja --------
+	do testshop
+	pause 5
+	do reload shop
+	log -------- Esperando 110 segundos para abrir a loja --------
+	pause 110
+	log -------- Vai abrir a loja --------
+	do openshop
+	log -------- Loja Aberta --------
+	pause 5
+	do al
+	pause 5
+	do sit
+}
+
+automacro muted {
+	status muted
+	exclusive 1
+	priority 1
+	call quit
+}
+
+macro quit {
+	do quit
+}

@@ -1,0 +1,48 @@
+#
+# Procurando MvP - By: Neirgral 1.0
+#		Maked: 27/12/2016
+#		Update: 18/06/2018
+#		
+# ATENCAO
+# Seguir as instrucoes abaixo:
+#
+# Alterar no arquivo mon_control para all 0
+# Alterar no arquivo mon_control para Nome do MVP 0 1 0
+# Alterar no arquivo pickupitems para all 0
+# Alterar no arquivo timeouts para ai_teleport_idle 2
+#
+#
+automacro mudandocontrol {
+	console /no jogo agora/i
+	exclusive 1
+	run-once 1
+	call {
+		[
+		do conf attackAuto 0
+		do conf itemsTakeAuto 0
+# Colocar o nome do mapa na frete do LockMap
+		do conf lockMap XXXXXXXXXX
+		do conf route_randomWalk 0
+		do conf sitAuto_hp_lower 0
+		do conf sitAuto_hp_upper 0
+		do conf sitAuto_sp_lower 0
+		do conf sitAuto_sp_upper 0
+		do conf teleportAuto_idle 1
+		do conf teleportAuto_useSkill 1
+		]
+	}
+}
+
+automacro MvP {
+# Colocar o nome do MVP entre /
+	monster XXXXXXX
+	exclusive 1
+	call {
+		$map = @arg ("$.lastMonsterPos", 3)
+		$locx = @arg ("$.lastMonsterPos", 1)
+		$locy = @arg ("$.lastMonsterPos", 2)
+# Colocar o nome do char que vai mandar pm entre "		
+		do pm "XXXXXX" $map $locx $locy
+		do reload macros
+	}
+}

@@ -1,0 +1,89 @@
+useSelf_item Condensed White Potion {
+	hp < 70%
+}
+
+useSelf_item Blue Potion {
+	sp < 10%
+}
+
+attackSkillSlot Acid Bomb {
+	lvl 10
+	dist 9
+	inLockOnly 1
+	notInTown 1
+	monsters Arc Angeling
+}
+
+useSelf_skill Full Chemical Protection {
+	lvl 5
+	whenStatusInactive Biochemical Helm
+	inLockOnly 1
+	notWhileSitting 1
+	notInTown 1
+}
+	
+#procurarmvp
+automacro huntkilllootmvp {
+map yuno_fild05
+#colocar o mapa desejado
+exclusive 1
+run-once 1
+	call {
+	#config
+	do conf attackAuto 2
+	do conf itemsTakeAuto 2
+	do conf lockMap yuno_fild05
+#colocar o mapa desejado
+	do conf route_randomWalk 0
+	do conf teleportAuto_idle 1
+	do conf teleportAuto_search 1
+	do conf teleportAuto_useSkill 1
+	do conf sitAuto_hp_lower 0
+	do conf sitAuto_hp_upper 0
+	do conf sitAuto_sp_lower 0
+	do conf sitAuto_sp_upper 0
+	do conf ignoreAll 1
+	do conf sitAuto_idle 0
+	do conf teleportAuto_deadly 0
+	#mon_control
+	do mconf all -1
+#colocar o mvp desejado
+	do mconf Arc Angeling 1 0 1
+	#pickupitems
+#colocar o loot desejado
+	do pconf all 0
+	do pconf Arc Angeling Card 2
+	do pconf Evil Wing 1
+	do pconf Yggdrasil Seed 1
+	do pconf Yggdrasil Leaf 1
+	do pconf Angel Wing 1
+	do pconf Turquoise 2
+	do pconf Agate 2	
+#items_control
+	do iconf Condensed White Potion 100 0 0 0 1
+	do iconf Blue Potion 20 0 0 0 1
+	do iconf Bottle Grenade 50 0 0 0 1
+	do iconf Acid Bottle 50 0 0 0 1
+	do iconf Glistening Coat 10 0 0 0 1
+#timeouts
+#do tconf ai_teleport_idle 2
+}
+}
+
+#relogar
+automacro relogar {
+console /Alvo morreu./i
+exclusive 1
+run-once 1
+	call {
+	pause 15
+	do relog 3600
+#colocar o timer do mvp sem a variação
+	do reload macros
+	}
+}
+
+
+#verificar opção de monstro morto inves de console.
+#Monstro na tela e nao ataca (è porque ele so ataca aquilo que esta no range dele)
+#Grava o timer de mais de 1 mvp ou mini boss ao mesmo tempo.

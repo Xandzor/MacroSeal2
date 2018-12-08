@@ -1,14 +1,11 @@
 #
-# Procurando MvP - By: Neirgral 1.0
+# Procurando MvP - By: Neirgral 2.5
 #		Maked: 27/12/2016
-#		Update: 18/06/2018
+#		Update: 07/12/2018
 #		
 # ATENCAO
 # Seguir as instrucoes abaixo:
 #
-# Alterar no arquivo mon_control para all 0
-# Alterar no arquivo mon_control para Nome do MVP 0 1 0
-# Alterar no arquivo pickupitems para all 0
 # Alterar no arquivo timeouts para ai_teleport_idle 2
 #
 #
@@ -20,7 +17,7 @@ automacro mudandocontrol {
 		[
 		do conf attackAuto 0
 		do conf itemsTakeAuto 0
-# Colocar o nome do mapa na frete do LockMap
+# Colocar o nome do mapa na frente do LockMap
 		do conf lockMap XXXXXXXXXX
 		do conf route_randomWalk 0
 		do conf sitAuto_hp_lower 0
@@ -29,6 +26,10 @@ automacro mudandocontrol {
 		do conf sitAuto_sp_upper 0
 		do conf teleportAuto_idle 1
 		do conf teleportAuto_useSkill 1
+		do mconf all 0
+# Colocar o nome do MVP no lugar do XXXXX
+		do mconf XXXXXX 0 1 0
+		do pconfig all 0
 		]
 	}
 }

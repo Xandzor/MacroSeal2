@@ -71,7 +71,7 @@ run-once 1
 
 #relogar
 automacro relogar {
-console /Alvo morreu./i
+console /Você é o MVP!/i
 exclusive 1
 run-once 1
 	call {

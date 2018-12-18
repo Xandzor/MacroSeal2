@@ -1,4 +1,8 @@
 #Bot para procurar, matar, pegar o loot, relogar e logar no proximo spawn
+#Alterar no Timeouts.txt:
+#ai_attack_auto 0.2
+#ai_item_use_auto 0.2
+#ai_skill_use 0.5
 #Configuração para Creador.
 
 #Alterar no config.txt

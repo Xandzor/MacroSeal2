@@ -19,7 +19,7 @@ attackSkillSlot Acid Bomb {
 	dist 9
 	inLockOnly 1
 	notInTown 1
-	monsters Arc Angeling
+	monsters XXXXXXXX
 }
 
 useSelf_skill Full Chemical Protection {

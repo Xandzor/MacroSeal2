@@ -77,11 +77,11 @@ run-once 1
 automacro relogar {
 console /Você é o MVP!/i
 exclusive 1
+delay 15
 run-once 1
 	call {
-	pause 15
-#colocar o timer do mvp sem a variação em segundos no lugar do XXXXXX
-	do relog XXXXXX
+	do relog XXXX
+#colocar o timer do mvp sem a variação
 	do reload macros
 	}
 }

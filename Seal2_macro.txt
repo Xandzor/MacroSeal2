@@ -256,3 +256,99 @@ automacro Librarian_10 {
         pause 2
     }
 }
+
+#################################################################
+
+#Zan Huadoku
+automacro Zan_Huadoku {
+	location prt_in 180 97
+	eval $::config{SealQuest2} eq 14
+    exclusive 1
+    run-once 1
+	call {
+		do is Prontera Warp Pass
+		pause 2
+		do move geffen_in 105 163
+		pause 5
+		do talknpc 109 161 c c c r0 c c c c c c c c n
+		pause 5
+		do talknpc 109 161 c c c r2 c c c c c c c c c c n
+		pause 5
+		do conf SealQuest2 15
+	}
+}
+
+#Keep talking to this NPC until he speaks about the unknown fragment. After that, talk to him again until he repeats himself.
+automacro Zan_Huadoku_2 {
+	location geffen_in 105 163
+	eval $::config{SealQuest2} eq 15
+    run-once 1
+	call {
+        while (@config (SealQuest2) == 15) as loop
+#confirmar passos de conversa
+            do talknpc 109 161
+            pause 2
+        end loop
+    }
+}
+
+automacro Zan_Huadoku_3 {
+#confirmar console
+	console /unknown fragment/i
+	location geffen_in 105 163
+	eval $::config{SealQuest2} eq 15
+    exclusive 1
+	run-once 1
+	call {
+		do talknpc 109 161 c c c c c c n
+		pause 2
+		do conf SealQuest2 16
+	}	
+}
+	
+automacro Zan_Huadoku_4 {
+	location geffen_in 105 163
+	eval $::config{SealQuest2} eq 16
+    exclusive 1
+    run-once 1
+	call {
+		do talknpc 109 161 c n
+		pause 2
+		do conf SealQuest2 17
+	}
+}
+
+#Inn Employee
+automacro Inn_Employee {
+	location geffen_in 105 163
+	eval $::config{SealQuest2} eq 17
+    exclusive 1
+    run-once 1
+	call {
+		do is Prontera Warp Pass
+		pause 2
+		do move morocc_in 142 139
+		pause 2
+		do talknpc 147 141 c r0 n
+		pause 2
+		do conf dcOnDeath 0
+		pause 
+		do conf SealQuest2 18
+	}
+}
+
+#Se ele te matar, precisa repetir essa parte ate mudar para a fala abaixo.
+#Select any of the options until you receive a clue that says "Aragham never hoarded upgrade items."
+automacro Inn_Employee_2 {
+	location morocc_in 142 139
+	eval $::config{SealQuest2} eq 18
+	exclusive 1
+	run-once 1
+	call {
+	 while (@config (SealQuest2) == 18) as loop
+#confirmar passos de conversa
+            do talknpc 146 179
+            pause 2
+        end loop
+	}
+}

@@ -312,7 +312,7 @@ automacro payon {
 
 #indoPayon
 #NPC Lania
-automacro lania {
+automacro lania_payon {
 	location payon
 	eval $::config{SealQuest1} eq 12
     exclusive 1
@@ -328,58 +328,81 @@ automacro lania {
 	}
 }
 
- do move yuno 218 180
- do move que_god01 84 92 c
- pause 2
+automacro lania_yuno {
+	location yuno
+	eval $::config{SealQuest1} eq 13
+    exclusive 1
+    run-once 1
+	call {
+		do move yuno 218 180
+		pause 2
+		do move que_god01 84 92
+		pause 2
+		do move que_god01 16 97
+		pause 2
+		do move que_god01 13 132
+		pause 2
+		do talknpc 11 136 c c c c c c c c
+		pause 2
+		do conf SealQuest1 14
+	}
+}
 
- do move que_god01 16 97 c
- pause 2
+automacro yuno {
+	location que_god01 13 132
+	eval $::config{SealQuest1} eq 14
+    exclusive 1
+    run-once 1
+	call {
+		do is Prontera Warp Pass
+		pause 2
+		do move prontera 152 32
+		pause 2
+		do talknpc 151 29 c r2 c r2
+		do conf SealQuest1 15
+	}
+}
 
- do move que_god01 13 132
- do talknpc 11 136 c c c c c c c c
- pause 2
+#NPC Lania
+automacro lania_payon_02 {
+	location payon
+	eval $::config{SealQuest1} eq 15
+    exclusive 1
+    run-once 1
+	call {
+		do move payon 82 172
+		pause 2
+		do talknpc 79 171 c c r0 c c r1 c c c c c c c c c c c c r1 c c c c c c r2 c c c c c c c c c c c r1 c c c c c c c c r1 c c c c c r2 c c c c c c c c c c
+		pause 2
+		do is Butterfly Wing
+		pause 2
+		do conf SealQuest1 16
+	}
+}
 
- #Essa configuracao é especifica do iRO Classic
- #Comente e utilize a de baixo(indoPayon)
- #indoPayonComPronteraPass
- do is Prontera Warp Pass
- pause 2
- do move prontera 152 32
- do talknpc 151 29 c r2 c r2 #1200zenny
- 
- #indoPayon
- #do move yuno 154 185
- #pause 2
- #do talknpc 152 187 c r2 c r0 #1200zeny
- #pause 2
- #do move aldebaran 151 120
- #do talknpc 143 119 c r2 c r0 #1200zenny
- #pause 2
- #do move geffen 123 62
- #do talknpc 134 88 c r2 c r0 #1200zenny
-
- #NPC Lania
- do move payon 82 172
- do talknpc 79 171 c c r0 c c r1 c c c c c c c c c c c c r1 c c c c c c r2 c c c c c c c c c c c r1 c c c c c c c c r1 c c c c c r2 c c c c c c c c c c
- pause 2
- do is Butterfly Wing
- pause 5
-
- do move yuno 218 180
- do move que_god01 84 92 c
- pause 2
-
- do move que_god01 16 97 c
- pause 2
-
- do move que_god01 13 132
- do talknpc 11 136 c c c c c c c r1 c c c c
- pause 2
-
- #saindoAdin
- do move que_god01 12 116
- do move que_god01 63 88
- do move que_god01 99 81
+automacro selo_s_sala_historiador_02 {
+	location yuno
+	eval $::config{SealQuest1} eq 16
+    exclusive 1
+    run-once 1
+	call {
+		do move yuno 218 180
+		pause 2
+		do move que_god01 84 92
+		pause 2
+		do move que_god01 16 97
+		pause 2
+		do move que_god01 13 132
+		pause 2
+		do talknpc 11 136 c c c c c c c r1 c c c c
+		pause 2
+#saindoAdin
+		do move que_god01 12 116
+		pause 2
+		do move que_god01 63 88
+		pause 2
+		do move que_god01 99 81
+		pause 2
 }
 
 
